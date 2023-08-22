@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+
+}
+@font-face {
+    font-family:kamerik ;
+    src: url(../fonts/kamerik205-heavy.woff2);
+}
+@font-face {
+    font-family:merriweather;
+    src: url(../fonts/merriweather-regular-italic.woff2);
+    font-weight: 900;
+}
+body{
+    background-color: black ;
+    color: white;
+    font-family: kamerik;
+}
+.logo{
+    background-repeat: no-repeat;
+    height: 150px;
+    width: 150px;
+}
+.layers{
+    perspective: 1000px;
+}
+.layers__conteiner{
+ height: 100vh;
+ transform-style: preserve-3d;
+}
+.layers__item{
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-position: center 
+}
