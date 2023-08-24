@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 :root{
-
+  --index: calc(1vw + 1vh);
+  --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
 }
 @font-face {
     font-family:kamerik ;
@@ -21,23 +22,80 @@ body{
     font-family: kamerik;
 }
 .logo{
+    --logo-size:calc(var(--index) * 8);
     background-repeat: no-repeat;
-    height: 150px;
-    width: 150px;
+    height: var(--logo-size);
+    width: var(--logo-size);
+    position: absolute;
+    left: calc(50% - calc(var(--logo-size) / 2));
+    top: calc(var(--index) * 2.8);
+    z-index: 1;
 }
 .layers{
     perspective: 1000px;
+    overflow: hidden;
 }
 .layers__conteiner{
  height: 100vh;
  transform-style: preserve-3d;
+ transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+ transition: var(--transition);
 }
 .layers__item{
     position: absolute;
     background-size: cover;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-position: center 
+    inset: -5vw;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layer-1{
+    transform: translateZ(-55px) scale(1.06);
+}
+.layer-2{
+    transform: translateZ(80px) scale(.88);
+}
+.layer-3{
+    transform: translateZ(180px) scale(.8);
+}
+.layer-4{
+    transform: translateZ(190px) scale(.9);
+}
+.layer-5{
+    transform: translateZ(300px) scale(.9);
+}
+.layer-6{
+    transform: translateZ(380px);
+}
+.hero-content h1{
+    letter-spacing: calc(var(--index)* -.2); 
+}
+.hero-content {
+    font-size: calc(var(--index)* 2.5);
+    text-align: center; 
+    margin-top: calc(var(--index)* 6);
+}
+.hero-content_p{
+    margin: 50px;
+    font-family: merriweather;
+    letter-spacing: normal;
+    font-size: calc(var(--index) * .8);
+}
+.batton-start{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: calc(var(--index) * .7);
+    padding: calc(var(--index) * .7) calc(var(--index) * 2);
+    background-color: transparent;
+    color: white;
+    border-radius: 10em;
+    border: #ffffff 3px solid;
+    outline: none;
+    cursor: pointer;
+}
+.layer-4, .layer-5, .layer-6{
+    pointer-events: none;
 }
