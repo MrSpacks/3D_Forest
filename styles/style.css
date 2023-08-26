@@ -71,6 +71,7 @@ body{
 }
 .hero-content h1{
     letter-spacing: calc(var(--index)* -.2); 
+    margin: 20px;
 }
 .hero-content {
     font-size: calc(var(--index)* 2.5);
